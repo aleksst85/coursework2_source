@@ -36,7 +36,7 @@
         <div class="item__top">
           <a href="/user-feed.html" class="item__head">
             <div class="item__ava-wrap">
-              <img src="{{content.poster_avatar}}" alt="" class="item__ava" width="47">
+              <img src="{{post.poster_avatar}}" alt="" class="item__ava" width="47">
             </div>
             <span class="item__username">{{post.poster_name}}</span>
           </a>
@@ -52,7 +52,7 @@
           </div>
         </div>
         <div class="item__post-bottom">
-          <a href="/post.html" class="item__btn-more">Подробнее</a>
+          <a href="/post/{{post.pk}}" class="item__btn-more">Подробнее</a>
           <button type="button" class="item__bookmark-btn">
             <img src="/img/bookmark.png" alt="" class="item__bookmark-icon" width="24">
           </button>
