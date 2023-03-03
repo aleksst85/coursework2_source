@@ -1,4 +1,4 @@
-from config import POST_LIST
+
 import json
 
 def load_posts(posts):
@@ -7,4 +7,3 @@ def load_posts(posts):
     return post_list
 
 
-print(load_posts(POST_LIST))

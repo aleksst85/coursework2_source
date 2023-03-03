@@ -1,1 +1,1 @@
-POST_LIST = '/data/posts.json'
+POST_LIST = 'data/posts.json'

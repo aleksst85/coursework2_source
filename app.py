@@ -1,11 +1,14 @@
 from flask import Flask, render_template, send_from_directory
 from config import POST_LIST
+from function import load_posts
 app = Flask(__name__)
 
 @app.route('/')
 @app.route('/index/')
 def start():
-    return render_template('index.html')
+    posts = load_posts(POST_LIST)
+    print(posts)
+    return render_template('index.html', posts=posts)
 
 
 @app.route("/img/<path:path>")
