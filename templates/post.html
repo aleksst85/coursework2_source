@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SKYPROGRAM post</title>
-  <link href="css/styles.min.css" rel="stylesheet">
+  <link href="/static/css/styles.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -35,7 +35,7 @@
             <span class="item__username">{{post.poster_name}}</span>
           </a>
           <button type="button" class="item__bookmark-btn">
-            <img src="img/bookmark.png" alt="" class="item__bookmark-icon" width="24">
+            <img src="/img/bookmark.png" alt="" class="item__bookmark-icon" width="24">
           </button>
         </div>
         <a href="" class="item__post-link">
@@ -48,22 +48,19 @@
         </div>
         <div class="item__bottom">
           <div class="item__post-info">
-            <p class="item__comments-counter">3 комментария</p>
+            <p class="item__comments-counter">{{len_comment}}</p>
             <div class="item__counter">
-              <img src="img/eye.png" alt="" class="item__counter-icon" width="26">
-              <span class="item__counter-text">1023</span>
+              <img src="/img/eye.png" alt="" class="item__counter-icon" width="26">
+              <span class="item__counter-text">{{post.views_count}}</span>
             </div>
           </div>
           <div class="item__comments">
+            
+            {% for comment in comments%}
             <p class="item__comment">
-              <b>user 1:</b> комментарий пользователя который его оставил
+              <b>{{comment.commenter_name}}:</b> {{comment.comment}}
             </p>
-            <p class="item__comment">
-              <b>user 2:</b> еще один комментарий
-            </p>
-            <p class="item__comment">
-              <b>user 3:</b> и&nbsp;какой-то коммент еще
-            </p>
+            {% endfor %}
           </div>
         </div>
       </div>
