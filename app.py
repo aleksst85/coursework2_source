@@ -1,4 +1,4 @@
-from flask import Flask, render_template, send_from_directory
+from flask import Flask, render_template, send_from_directory, request
 from config import POST_LIST, COMENT_LIST
 from function import load_posts, find_id_post, find_post_coment, find_name_post
 app = Flask(__name__)
@@ -26,11 +26,15 @@ def post(id_post):
 @app.route('/user-feed/<string:name>')
 def name_post(name):
     posts = find_name_post(name, POST_LIST)
-    return render_template('user-feed.html', name=name)
+    return render_template('user-feed.html', name=name, posts=posts)
 
 
 
-
+@app.route('/user-feed', methods=["POST"])
+def bokmark_insert():
+    post_id = request.values.get('post_id')
+    print(post_id)
+    return '<script>document.location.href = document.referrer</script>'
 
 
 
