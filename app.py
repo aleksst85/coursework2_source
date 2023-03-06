@@ -1,6 +1,6 @@
 from flask import Flask, render_template, send_from_directory, request
 from config import POST_LIST, COMENT_LIST
-from function import load_posts, find_id_post, find_post_coment, find_name_post
+from function import load_posts, find_id_post, find_post_coment, find_name_post, search_for_posts
 app = Flask(__name__)
 
 @app.route('/')
@@ -37,6 +37,12 @@ def bokmark_insert():
     return '<script>document.location.href = document.referrer</script>'
 
 
+@app.route('/search', methods=["POST"])
+def search_posts():
+    text_search = request.values.get('search_post_text')
+    data_search = search_for_posts(text_search, POST_LIST)
+    len_posts=len(data_search)
+    return render_template('search.html', len_posts=len_posts, data_search=data_search )
 
 
 

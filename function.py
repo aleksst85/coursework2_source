@@ -37,8 +37,18 @@ def find_name_post(name, file_post):
     return poster_list
 
 
+def search_for_posts(query, file_post): 
+    data = load_posts(file_post) 
+    post_searhc_list=[]  
+    for post in data:   
+        if query.lower() in post['content'].lower():
+            if len(post_searhc_list)<11:
+                post_searhc_list.append(post)
+            else:
+                break
+    return post_searhc_list
 
-       
+
 
 
 
